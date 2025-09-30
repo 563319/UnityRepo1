@@ -13,42 +13,35 @@ public class FatBirdScript : MonoBehaviour
     public Animator anim;
     float enemyX = 0f;
     float enemyY = 0f;
-    float oldEnemyY = 0f;
-    public float speed = 3f;
+    
+    public float speed = 0.8f;
     bool canGoDown = true;
+    bool canGoUp = false ;
+    public float maxHeight;
+    
 
     void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
         playerLayer = LayerMask.GetMask("Player");
         rb = GetComponent<Rigidbody2D>();
-        oldEnemyY = enemyY;
-
+       
     }
 
 
     void Update()
     {
-        
         enemyX = transform.position.x;
         enemyY = transform.position.y;
-        /*
-        float xvel, yvel;
-        xvel = rb.linearVelocity.x;
-        yvel = rb.linearVelocity.y;
-        */
-       
+
+
         transform.position = new Vector3(enemyX, enemyY, 0);
-
-        Invoke(nameof(EnemyMovement), 3f);
-        if (enemyY > oldEnemyY)
-        {
-            enemyY = oldEnemyY;
-        }
+        //wait 3 seconds then run the method enemy movement
+        //Invoke(nameof(EnemyMovement), 3f);
+        EnemyMovement();
 
 
-
-
+        // checks for player jumping on top of enemy using raycasts
         if (ExtendedRayCollisionCheckPlayer(0, 2.8f) == true)
         {
             Destroy(gameObject);
@@ -70,8 +63,6 @@ public class FatBirdScript : MonoBehaviour
             Destroy(gameObject);
         }
         
-
-
     }
 
     public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)
@@ -151,6 +142,16 @@ public class FatBirdScript : MonoBehaviour
 
     public void EnemyMovement()
     {
+        
+
+        if (transform.position.y >= maxHeight)
+        {
+            canGoUp = false;
+            canGoDown = true;
+
+        }
+
+
         if (canGoDown == true)
         {
             transform.Translate(speed * Time.deltaTime * Vector3.down);
@@ -158,26 +159,15 @@ public class FatBirdScript : MonoBehaviour
             anim.SetBool("isOnGround", false);
             anim.SetBool("isIdle", false);
         }
-      
-        /*if (ExtendedRayCollisionCheck(0,0.58f) == true)
+        if (canGoUp == true)
         {
-            
             transform.Translate(speed * Time.deltaTime * Vector3.up);
             anim.SetBool("isOnGround", false);
             anim.SetBool("isIdle", true);
             anim.SetBool("isFalling", false);
         }
-        */
-        if (enemyY == oldEnemyY)
-        {
-            anim.SetBool("isIdle", true);
-            anim.SetBool("isFalling", false);
-            anim.SetBool("isOnGround", false);
-            canGoDown = true;
-        }
 
-        
-
+       
 
 
     }
@@ -186,13 +176,19 @@ public class FatBirdScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("Ground") == true)
         {
             canGoDown = false;
-            transform.Translate(speed * Time.deltaTime * Vector3.up);
-            anim.SetBool("isOnGround", false);
-            anim.SetBool("isIdle", true);
-            anim.SetBool("isFalling", false);
+            canGoUp = true;
+            
 
         }
         
     }
+    
+    
+
+      
+     
+
+
+    
 
 }
