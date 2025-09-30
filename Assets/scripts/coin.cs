@@ -4,7 +4,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class coin : MonoBehaviour
 {
 
-    public NewMonoBehaviourScript objectOne;
+    public PlayerScript objectOne;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

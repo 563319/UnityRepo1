@@ -14,7 +14,7 @@ public class FatBirdScript : MonoBehaviour
     float enemyX = 0f;
     float enemyY = 0f;
     
-    public float speed = 0.8f;
+    public float speed = 1f;
     bool canGoDown = true;
     bool canGoUp = false ;
     public float maxHeight;

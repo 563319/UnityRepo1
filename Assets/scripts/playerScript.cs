@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
-public class NewMonoBehaviourScript : MonoBehaviour
-{
+public class PlayerScript:MonoBehaviour
+{ 
     Rigidbody2D rb;
     bool isGrounded;
     public Animator anim;
@@ -19,6 +19,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         groundLayer = LayerMask.GetMask("Ground");
         rb = GetComponent<Rigidbody2D>();
+
+        
     }
 
     // Update is called once per frame
