@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,8 +10,11 @@ public class PlayerScript:MonoBehaviour
     Rigidbody2D rb;
     bool isGrounded;
     public Animator anim;
-    public int playerScore = 0;
+    public int playerScore;
     public LayerMask groundLayer;
+    public int lives;
+    HelperScript helper;
+
 
 
 
@@ -19,8 +23,10 @@ public class PlayerScript:MonoBehaviour
     {
         groundLayer = LayerMask.GetMask("Ground");
         rb = GetComponent<Rigidbody2D>();
+        lives = 5;
+        helper = gameObject.AddComponent<HelperScript>();
 
-        
+
     }
 
     // Update is called once per frame
@@ -36,19 +42,21 @@ public class PlayerScript:MonoBehaviour
         if (Input.GetKey("a"))
         {
             xvel = -4.3f;
-            GetComponent<SpriteRenderer>().flipX = true;
+            //GetComponent<SpriteRenderer>().flipX = true;
+            helper.DoFlipObject(true);
 
 
         }
         if (Input.GetKey("d"))
         {
             xvel = 4.3f;
-            GetComponent<SpriteRenderer>().flipX = false;
+            //GetComponent<SpriteRenderer>().flipX = false;
+            helper.DoFlipObject(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded )
         {
-            yvel = 11f;
+            yvel = 12f;
         }
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
@@ -62,8 +70,9 @@ public class PlayerScript:MonoBehaviour
             anim.SetBool("isRunning", false);
         }
 
+        helper.HelloWorld();
 
-        
+
 
 
     }

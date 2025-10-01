@@ -1,10 +1,13 @@
+
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class coin : MonoBehaviour
+
+public class Coin : MonoBehaviour
 {
 
     public PlayerScript objectOne;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +26,7 @@ public class coin : MonoBehaviour
 
 
             objectOne.playerScore += 1;
+            
             Destroy(gameObject);
         }
     }

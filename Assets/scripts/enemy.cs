@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     Rigidbody2D rb;
     public LayerMask groundLayer;
@@ -9,17 +9,26 @@ public class enemy : MonoBehaviour
     bool right = true;
     public float rightEnemySpeed = 2f;
     public float leftEnemySpeed = -2f;
+    
+    public PlayerScript playerScript;
+    HelperScript helper;
 
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         groundLayer = LayerMask.GetMask("Ground");
+        helper = gameObject.AddComponent<HelperScript>();
+
     }
 
     
     void Update()
     {
+        
+        //print("enemy says: The player has " + playerScript.lives + " lives");
+        
 
         float xvel, yvel;
         xvel = rb.linearVelocity.x;
@@ -55,6 +64,12 @@ public class enemy : MonoBehaviour
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
+        /*
+         if( Input.GetKey("space")
+         {
+            helper.DoFlipObject(true);    // this will execute the method in HelperScript.cs
+         }
+        */
 
 
 
