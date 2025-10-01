@@ -8,17 +8,13 @@ public class FatBirdScript : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask playerLayer;
     Rigidbody2D rb;
-    
-    
     public Animator anim;
     float enemyX = 0f;
     float enemyY = 0f;
-    
     public float speed = 1f;
     bool canGoDown = true;
     bool canGoUp = false ;
     public float maxHeight;
-    
 
     void Start()
     {
@@ -28,18 +24,12 @@ public class FatBirdScript : MonoBehaviour
        
     }
 
-
     void Update()
     {
         enemyX = transform.position.x;
         enemyY = transform.position.y;
-
-
         transform.position = new Vector3(enemyX, enemyY, 0);
-        //wait 3 seconds then run the method enemy movement
-        //Invoke(nameof(EnemyMovement), 3f);
         EnemyMovement();
-
 
         // checks for player jumping on top of enemy using raycasts
         if (ExtendedRayCollisionCheckPlayer(0, 2.8f) == true)
@@ -142,16 +132,12 @@ public class FatBirdScript : MonoBehaviour
 
     public void EnemyMovement()
     {
-        
-
         if (transform.position.y >= maxHeight)
         {
             canGoUp = false;
             canGoDown = true;
 
         }
-
-
         if (canGoDown == true)
         {
             transform.Translate(speed * Time.deltaTime * Vector3.down);
@@ -166,9 +152,6 @@ public class FatBirdScript : MonoBehaviour
             anim.SetBool("isIdle", true);
             anim.SetBool("isFalling", false);
         }
-
-       
-
 
     }
     private void OnCollisionEnter2D(Collision2D collision)

@@ -15,10 +15,7 @@ public class PlayerScript:MonoBehaviour
     public int lives;
     HelperScript helper;
 
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
@@ -26,15 +23,13 @@ public class PlayerScript:MonoBehaviour
         lives = 5;
         helper = gameObject.AddComponent<HelperScript>();
 
-
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         DoRayCollisionCheck();
         float xvel, yvel;
-        
 
         xvel = rb.linearVelocity.x;
         yvel = rb.linearVelocity.y;
@@ -73,8 +68,6 @@ public class PlayerScript:MonoBehaviour
         helper.HelloWorld();
 
 
-
-
     }
     /*public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)
     {
@@ -110,7 +103,6 @@ public class PlayerScript:MonoBehaviour
     }
     */
 
-
     public bool DoRayCollisionCheck()
     {
         float rayLength = 0.5f; // length of raycast
@@ -145,39 +137,12 @@ public class PlayerScript:MonoBehaviour
         Debug.DrawRay(transform.position, Vector2.down * rayLength, hitColor);
         return hit.collider;
 
-
     }
 
 
-
-
-
-    /*private void OnCollisionStay2D(Collision2D collision)
-    {
-        isGrounded = true;
-    }
-    */
-    
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        /*
-        isGrounded = false;
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            anim.SetBool("isJumping", true);
-        }
-        */
-    }
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            anim.SetBool("isJumping", false);
-        }
-        */
-        //
         if (collision.gameObject.tag.Equals("spike") == true)
         {
             SceneManager.LoadScene(0);
@@ -188,11 +153,7 @@ public class PlayerScript:MonoBehaviour
             SceneManager.LoadScene(0);
 
         }
-
     }
-    
-
-
 }
 
 

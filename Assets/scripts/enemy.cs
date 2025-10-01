@@ -9,11 +9,8 @@ public class Enemy : MonoBehaviour
     bool right = true;
     public float rightEnemySpeed = 2f;
     public float leftEnemySpeed = -2f;
-    
     public PlayerScript playerScript;
     HelperScript helper;
-
-    
 
     void Start()
     {
@@ -26,13 +23,10 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
-        
-        //print("enemy says: The player has " + playerScript.lives + " lives");
-        
-
         float xvel, yvel;
         xvel = rb.linearVelocity.x;
         yvel = rb.linearVelocity.y;
+
         if (startMove == true)
         {
             xvel = rightEnemySpeed;
@@ -60,18 +54,7 @@ public class Enemy : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
-
-
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
-
-        /*
-         if( Input.GetKey("space")
-         {
-            helper.DoFlipObject(true);    // this will execute the method in HelperScript.cs
-         }
-        */
-
-
 
     }
     public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)
