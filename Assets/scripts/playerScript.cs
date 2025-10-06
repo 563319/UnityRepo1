@@ -36,7 +36,7 @@ public class PlayerScript:MonoBehaviour
 
         if (Input.GetKey("a"))
         {
-            xvel = -4.3f;
+            xvel = -4.7f;
             //GetComponent<SpriteRenderer>().flipX = true;
             helper.DoFlipObject(true);
 
@@ -44,14 +44,14 @@ public class PlayerScript:MonoBehaviour
         }
         if (Input.GetKey("d"))
         {
-            xvel = 4.3f;
+            xvel = 4.7f;
             //GetComponent<SpriteRenderer>().flipX = false;
             helper.DoFlipObject(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded )
         {
-            yvel = 12f;
+            yvel = 14f;
         }
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
