@@ -49,7 +49,7 @@ public class PlayerScript:MonoBehaviour
             helper.DoFlipObject(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded )
+        if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown("j") && isGrounded ))
         {
             yvel = 14f;
         }
