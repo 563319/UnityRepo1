@@ -22777,7 +22777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::enemy
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   rightEnemySpeed: 3
   leftEnemySpeed: -3
   playerScript: {fileID: 1333162616}
