@@ -14,6 +14,8 @@ public class PlayerScript:MonoBehaviour
     public LayerMask groundLayer;
     public int lives;
     HelperScript helper;
+    public float speed;
+    
 
     
     void Start()
@@ -22,6 +24,7 @@ public class PlayerScript:MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lives = 5;
         helper = gameObject.AddComponent<HelperScript>();
+        speed = 4.7f;
 
     }
 
@@ -36,7 +39,7 @@ public class PlayerScript:MonoBehaviour
 
         if (Input.GetKey("a"))
         {
-            xvel = -4.7f;
+            xvel = -speed;
             //GetComponent<SpriteRenderer>().flipX = true;
             helper.DoFlipObject(true);
 
@@ -44,7 +47,7 @@ public class PlayerScript:MonoBehaviour
         }
         if (Input.GetKey("d"))
         {
-            xvel = 4.7f;
+            xvel = speed;
             //GetComponent<SpriteRenderer>().flipX = false;
             helper.DoFlipObject(false);
         }
@@ -53,6 +56,8 @@ public class PlayerScript:MonoBehaviour
         {
             yvel = 14f;
         }
+
+       
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
