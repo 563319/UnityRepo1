@@ -15,7 +15,7 @@ public class PlayerScript:MonoBehaviour
     public int lives;
     HelperScript helper;
     public float speed;
-    
+     
 
     
     void Start()
@@ -52,7 +52,7 @@ public class PlayerScript:MonoBehaviour
             helper.DoFlipObject(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown("j") && isGrounded ))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             yvel = 14f;
         }
