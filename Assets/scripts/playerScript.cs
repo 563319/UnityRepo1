@@ -14,17 +14,27 @@ public class PlayerScript:MonoBehaviour
     public LayerMask groundLayer;
     public int lives;
     HelperScript helper;
-    public float speed;
-     
+    float rightSpeed;
+    float leftSpeed;
+    float speed;
+    float sprintSpeed;
+    float walkSpeed;
 
-    
+
+
+
     void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
         rb = GetComponent<Rigidbody2D>();
         lives = 5;
         helper = gameObject.AddComponent<HelperScript>();
-        speed = 4.7f;
+        sprintSpeed = 8;
+        walkSpeed = 4.7f;
+        speed = walkSpeed;
+        rightSpeed = speed;
+        leftSpeed = -speed;
+       
 
     }
 
@@ -39,7 +49,7 @@ public class PlayerScript:MonoBehaviour
 
         if (Input.GetKey("a"))
         {
-            xvel = -speed;
+            xvel = leftSpeed;
             //GetComponent<SpriteRenderer>().flipX = true;
             helper.DoFlipObject(true);
 
@@ -47,7 +57,7 @@ public class PlayerScript:MonoBehaviour
         }
         if (Input.GetKey("d"))
         {
-            xvel = speed;
+            xvel = rightSpeed;
             //GetComponent<SpriteRenderer>().flipX = false;
             helper.DoFlipObject(false);
         }
@@ -57,7 +67,17 @@ public class PlayerScript:MonoBehaviour
             yvel = 14f;
         }
 
-       
+        if (Input.GetKeyDown("m"))
+        {
+            speed = sprintSpeed;
+        }
+        if (Input.GetKeyUp("m"))
+        {
+            speed = walkSpeed;
+        }
+        
+
+
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
@@ -145,6 +165,7 @@ public class PlayerScript:MonoBehaviour
     }
 
 
+
    
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -159,6 +180,7 @@ public class PlayerScript:MonoBehaviour
 
         }
     }
+
 }
 
 

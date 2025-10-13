@@ -16,8 +16,8 @@ public class Spike : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //print("did damage");
-        
+       //
+       //
     }
 }
     
