@@ -18,6 +18,15 @@ public class HelperScript : MonoBehaviour
         }
 
     }
+
+    public bool GetDirection()
+    {
+        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+        return sr.flipX;
+
+    }
+
+
     public void HelloWorld()
     {
         if (Input.GetKey("h"))

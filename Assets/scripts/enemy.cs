@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public float leftEnemySpeed = -2f;
     public PlayerScript playerScript;
     HelperScript helper;
+    int enemyHealth = 2;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
+        Death();
         float xvel, yvel;
         xvel = rb.linearVelocity.x;
         yvel = rb.linearVelocity.y;
@@ -93,5 +95,25 @@ public class Enemy : MonoBehaviour
 
         return hitSomething;
 
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            
+            enemyHealth -= 1;
+            GetComponent<SpriteRenderer>().color = Color.red;
+            //GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
+
+
+    void Death()
+    {
+        if (enemyHealth == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

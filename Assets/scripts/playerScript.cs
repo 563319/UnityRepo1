@@ -19,6 +19,8 @@ public class PlayerScript:MonoBehaviour
     float speed;
     float sprintSpeed;
     float walkSpeed;
+    public GameObject weapon;
+   
 
 
 
@@ -34,6 +36,7 @@ public class PlayerScript:MonoBehaviour
         speed = walkSpeed;
         rightSpeed = speed;
         leftSpeed = -speed;
+
        
 
     }
@@ -42,6 +45,7 @@ public class PlayerScript:MonoBehaviour
     void Update()
     {
         DoRayCollisionCheck();
+        Shoot();
         float xvel, yvel;
 
         xvel = rb.linearVelocity.x;
@@ -69,11 +73,13 @@ public class PlayerScript:MonoBehaviour
 
         if (Input.GetKeyDown("m"))
         {
-            speed = sprintSpeed;
+            rightSpeed = sprintSpeed;
+            leftSpeed = -sprintSpeed;
         }
         if (Input.GetKeyUp("m"))
         {
-            speed = walkSpeed;
+            rightSpeed = walkSpeed;
+            leftSpeed = -walkSpeed;
         }
         
 
@@ -186,6 +192,42 @@ public class PlayerScript:MonoBehaviour
         {
             SceneManager.LoadScene(0);
 
+        }
+
+    }
+
+    void Shoot()
+    {
+
+
+        //int moveDirection = 1;
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("n"))
+        {
+            // Instantiate the bullet at the position and rotation of the player
+            GameObject clone;
+            clone = Instantiate(weapon, transform.position, transform.rotation);
+
+            // for 2D, get the rigidbody component
+            Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
+
+
+            // set the velocity
+            if  (helper.GetDirection() == true )
+            {
+                rb.linearVelocity = new Vector2(-16, 0 );
+                clone.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else
+            {
+                rb.linearVelocity = new Vector2(16, 0);
+                clone.GetComponent<SpriteRenderer>().flipX = true;
+
+            }
+
+
+            // set the position close to the player
+            rb.transform.position = new Vector3(transform.position.x, transform.position.y +
+                1, transform.position.z + 1);
         }
 
     }
