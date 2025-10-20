@@ -20,7 +20,9 @@ public class PlayerScript:MonoBehaviour
     float sprintSpeed;
     float walkSpeed;
     public GameObject weapon;
-   
+    public bool cantp = false;
+ 
+
 
 
 
@@ -44,6 +46,10 @@ public class PlayerScript:MonoBehaviour
     
     void Update()
     {
+       
+
+
+
         DoRayCollisionCheck();
         Shoot();
         float xvel, yvel;
@@ -81,7 +87,13 @@ public class PlayerScript:MonoBehaviour
             rightSpeed = walkSpeed;
             leftSpeed = -walkSpeed;
         }
-        
+
+        if (Input.GetKey("h"))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+
 
 
 
@@ -185,6 +197,7 @@ public class PlayerScript:MonoBehaviour
             SceneManager.LoadScene(0);
 
         }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -9,6 +9,7 @@ TagManager:
   - coin
   - Enemy
   - Bullet
+  - tpbutton
   layers:
   - Default
   - TransparentFX

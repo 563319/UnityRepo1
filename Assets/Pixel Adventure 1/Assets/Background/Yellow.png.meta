@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 248611cc7bb8d85448933cee393ce41e
+guid: 4d8c75a4d7dd2a0489270e1058d82128
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,5 +106,5 @@ AssetOrigin:
   productId: 155360
   packageName: Pixel Adventure 1
   packageVersion: 1.0
-  assetPath: Assets/Pixel Adventure 1/Assets/Background/Purple.png
+  assetPath: Assets/Pixel Adventure 1/Assets/Background/Yellow.png
   uploadId: 332803

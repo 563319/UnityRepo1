@@ -16,6 +16,12 @@ public class NextLevelTrigger : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //SceneManager.LoadScene(1);
+
+        if (collision.gameObject.tag.Equals("Player") == true)
+        {
+            SceneManager.LoadScene(2);
+
+        }
+        
     }
 }

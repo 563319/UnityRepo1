@@ -31,7 +31,7 @@ public class HelperScript : MonoBehaviour
     {
         if (Input.GetKey("h"))
         {
-            print("Hello World");
+           // print("Hello World");
         }
     }
 }

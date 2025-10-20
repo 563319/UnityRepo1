@@ -16,6 +16,7 @@ public class FatBirdScript : MonoBehaviour
     bool canGoUp = false ;
     public float maxHeight;
 
+
     void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
