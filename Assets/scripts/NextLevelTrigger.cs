@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class NextLevelTrigger : MonoBehaviour
 {
+    public int sceneNum = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +20,7 @@ public class NextLevelTrigger : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("Player") == true)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(sceneNum);
 
         }
         

@@ -21,6 +21,11 @@ public class MenuButton : MonoBehaviour
         SceneManager.LoadScene(2);
 
     }
+    public void StartLevel3()
+    {
+        SceneManager.LoadScene(3);
+
+    }
     public void Lowset()
     {
         //
