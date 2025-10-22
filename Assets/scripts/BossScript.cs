@@ -1,4 +1,8 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
 
 public class BossScript : MonoBehaviour
 {
@@ -11,19 +15,20 @@ public class BossScript : MonoBehaviour
     public float leftEnemySpeed = -2f;
     public PlayerScript playerScript;
     HelperScript helper;
-    int enemyHealth = 20;
+   public int enemyHealth = 20;
+    int counter = 0;
+    public Animator anim;
 
-
-    /*
+    //bool isIdle = true;
+    //bool isSpikeing = false
+    
     bool isHit;
     bool isIdleYS;
     bool isIdleNS;
     bool spikesIn;
-    bool spikeOut;
-    */
+    bool spikesOut;
+   
 
-
-    
 
 
     void Start()
@@ -31,6 +36,13 @@ public class BossScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         groundLayer = LayerMask.GetMask("Ground");
         helper = gameObject.AddComponent<HelperScript>();
+        
+        isIdleNS = true;
+        //isIdleYS = false;
+        //spikesIn = false;
+        //spikesOut = false;
+        
+
 
     }
 
@@ -51,25 +63,167 @@ public class BossScript : MonoBehaviour
             right = true;
             left = false;
             startMove = false;
+            counter ++;
         }
         if (ExtendedRayCollisionCheck(2f, 0.8f) == true)
         {
             left = true;
             right = false;
             startMove = false;
+            counter ++;
         }
+
         if (right == true)
         {
             xvel = rightEnemySpeed;
             GetComponent<SpriteRenderer>().flipX = true;
+            
         }
         if (left == true)
         {
             xvel = leftEnemySpeed;
             GetComponent<SpriteRenderer>().flipX = false;
+            
+        }
+        /////////////////////////////////////////////////
+
+
+        if( counter == 2 )
+        {
+            counter=0;
+            //toggle animation
+
+            if (anim.GetBool("idlein") == true)
+            {
+                anim.SetBool("spikesOut", true);
+                return;
+            }
+
+            if (anim.GetBool("idleOut") == true)
+            {
+                anim.SetBool("spikesOut", true);
+                return;
+            }
+
         }
 
+        return;
+        if (counter % 2 == 0)
+        {
+            if (anim.GetBool("idleOut") == true)
+            {
+                spikesIn = true;
+            }
+            if (anim.GetBool("idleIn") == true)
+            {
+                spikesOut = true;
+            }
+        }
+        if (counter % 2 != 0)
+        {
+            if (anim.GetBool("spikesOut") == true)
+            {
+                isIdleYS = true;
+            }
+            if (anim.GetBool("spikesIn") == true)
+            {
+                isIdleNS = true;
+            }
+        }
+
+
+
+        if (isIdleYS == true)
+        {
+            anim.SetBool("idleOut", true);
+        }
+        if (isIdleNS == true)
+        {
+            anim.SetBool("idleIn", true);
+        }
+        if (spikesIn == true)
+        {
+            anim.SetBool("spikesIn", true);
+        }
+        if (spikesOut == true)
+        {
+            anim.SetBool("spikesOut", true);
+        }
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+        if (counter % 2 == 0)
+        {
+            isIdle = false;
+            isSpikeing = true;
+        }
+        if (counter % 2 != 0)
+        {
+            isSpikeing = false;
+            isIdle = true;
+        }
+
+        /*
+        if (isSpikeing == true)
+        {
+            //anim.SetBool("spikesOut", true);
+            
+            if (anim.GetBool("idleIn") == false)
+            {
+                anim.SetBool("spikesOut", true);
+
+            }
+            if (anim.GetBool("idleOut") == false)
+            {
+                anim.SetBool("spikesIn", true);
+            }
+            // anim.SetBool("spikesOut", true);
+            // anim.SetBool("spikesOut", true);
+            
+        }
+        
+        if (isIdle == true)
+        {
+            
+            if (anim.GetBool("spikesOut"))
+            {  
+                anim.SetBool("idleOut", true);
+            }
+
+            if (anim.GetBool("spikesIn"))
+            {
+                anim.SetBool("idleIn", true);
+            }
+            
+
+        }
+        */
+
+
+
+
+
+
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
+
 
 
         if (enemyHealth < 4)
@@ -83,18 +237,9 @@ public class BossScript : MonoBehaviour
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
     }
+
+
     public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)
     {
         float rayLength = 0.5f; // length of raycast
@@ -153,7 +298,17 @@ public class BossScript : MonoBehaviour
     {
         if (enemyHealth == 0)
         {
+            
             Destroy(gameObject);
+            
         }
     }
+
+
+    public void SpikesFullyOut()
+    {
+        anim.SetBool("idleOut", true);
+
+    }
+    
 }

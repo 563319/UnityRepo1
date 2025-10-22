@@ -24102,7 +24102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -190.14087, y: 0}
+  m_AnchoredPosition: {x: -208.14087, y: 24}
   m_SizeDelta: {x: 869.2001, y: 543.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &343146164
@@ -38999,8 +38999,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  rightEnemySpeed: 7
-  leftEnemySpeed: -7
+  rightEnemySpeed: 10
+  leftEnemySpeed: -10
   playerScript: {fileID: 566189743}
 --- !u!4 &1373444033 stripped
 Transform:

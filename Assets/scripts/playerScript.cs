@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
+using System.Collections;
 
 public class PlayerScript:MonoBehaviour
 { 
@@ -21,7 +22,9 @@ public class PlayerScript:MonoBehaviour
     float walkSpeed;
     public GameObject weapon;
     public bool cantp = false;
- 
+    public BossScript objectOne;
+    int enemyHealth;
+
 
 
 
@@ -38,8 +41,8 @@ public class PlayerScript:MonoBehaviour
         speed = walkSpeed;
         rightSpeed = speed;
         leftSpeed = -speed;
+        enemyHealth = objectOne.enemyHealth;
 
-       
 
     }
 
@@ -92,6 +95,10 @@ public class PlayerScript:MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+        if (Input.GetKey("q"))
+        {
+            Application.Quit();
+        }
 
 
 
@@ -108,8 +115,11 @@ public class PlayerScript:MonoBehaviour
             anim.SetBool("isRunning", false);
         }
 
-        helper.HelloWorld();
-
+        
+        if (objectOne.enemyHealth == 0)
+        {
+            StartCoroutine(EndGame());
+        }
 
     }
     /*public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)
@@ -244,6 +254,13 @@ public class PlayerScript:MonoBehaviour
         }
 
     }
+     private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(4);
+    }
+
+
 
 }
 
