@@ -25551,6 +25551,7 @@ MonoBehaviour:
   lives: 5
   weapon: {fileID: 5563790718593142077, guid: 8d2b6059bb5b0cb40a79569e811fcd9b, type: 3}
   cantp: 0
+  objectOne: {fileID: 0}
 --- !u!95 &566189744
 Animator:
   serializedVersion: 7

@@ -22,8 +22,8 @@ public class PlayerScript:MonoBehaviour
     float walkSpeed;
     public GameObject weapon;
     public bool cantp = false;
-    public BossScript objectOne;
-    int enemyHealth;
+    
+    
 
 
 
@@ -41,7 +41,7 @@ public class PlayerScript:MonoBehaviour
         speed = walkSpeed;
         rightSpeed = speed;
         leftSpeed = -speed;
-        enemyHealth = objectOne.enemyHealth;
+        
 
 
     }
@@ -116,10 +116,7 @@ public class PlayerScript:MonoBehaviour
         }
 
         
-        if (objectOne.enemyHealth == 0)
-        {
-            StartCoroutine(EndGame());
-        }
+        
 
     }
     /*public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)
@@ -254,11 +251,7 @@ public class PlayerScript:MonoBehaviour
         }
 
     }
-     private IEnumerator EndGame()
-    {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(4);
-    }
+    
 
 
 
