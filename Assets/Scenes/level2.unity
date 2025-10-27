@@ -25551,7 +25551,6 @@ MonoBehaviour:
   lives: 5
   weapon: {fileID: 5563790718593142077, guid: 8d2b6059bb5b0cb40a79569e811fcd9b, type: 3}
   cantp: 0
-  objectOne: {fileID: 0}
 --- !u!95 &566189744
 Animator:
   serializedVersion: 7
@@ -25637,7 +25636,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 2.5
@@ -34535,11 +34534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6318259731536938972, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.422531
+      value: 6.24
       objectReference: {fileID: 0}
     - target: {fileID: 6318259731536938972, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.006154
+      value: 5.72
       objectReference: {fileID: 0}
     - target: {fileID: 6318259731536938972, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: m_LocalPosition.z
