@@ -279,7 +279,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4451202252864296183, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: speed
-      value: 7
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 4451202252864296183, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: maxHeight
@@ -34526,11 +34526,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4451202252864296183, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: speed
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4451202252864296183, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: maxHeight
-      value: 6.006154
+      value: 5.72
       objectReference: {fileID: 0}
     - target: {fileID: 6318259731536938972, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36835,7 +36835,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4451202252864296183, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: speed
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4451202252864296183, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: maxHeight
@@ -38219,7 +38219,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4451202252864296183, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: speed
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4451202252864296183, guid: 206a6a8b17a8e1c4d8db736704341312, type: 3}
       propertyPath: maxHeight

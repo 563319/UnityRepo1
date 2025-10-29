@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: d5a18ef5acd7a5f439f3b778ff11e287
+guid: d34a33721e0891f498139dfa0e0a7165
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2593656058079269857
-    second: background1_scaled_2x_pngcrushed_0
+      213: 3819262768206541099
+    second: facefinalfinal_0
+  - first:
+      213: 4943684779772579333
+    second: facefinalfinal_1
+  - first:
+      213: 1244072622322409854
+    second: facefinalfinal_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,9 +46,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -96,43 +102,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: background1_scaled_2x_pngcrushed_0
+      name: facefinalfinal_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 256
+        x: 5
+        y: 7
+        width: 15
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e3da5b61748ef320800000000000000
-      internalID: 2593656058079269857
+      spriteID: b2173da904fb00530800000000000000
+      internalID: 3819262768206541099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facefinalfinal_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 7
+        width: 51
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50e89db4d1f7b9440800000000000000
+      internalID: 4943684779772579333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facefinalfinal_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 7
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e71e0586575d34110800000000000000
+      internalID: 1244072622322409854
       vertices: []
       indices: 
       edges: []
@@ -161,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      background1_scaled_2x_pngcrushed_0: 2593656058079269857
+      facefinalfinal_0: 3819262768206541099
+      facefinalfinal_1: 4943684779772579333
+      facefinalfinal_2: 1244072622322409854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
