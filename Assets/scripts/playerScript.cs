@@ -22,9 +22,9 @@ public class PlayerScript:MonoBehaviour
     float walkSpeed;
     public GameObject weapon;
     public bool cantp = false;
-    
-    
-
+    AudioManager audioManager;
+    bool wasGrounded;
+   
 
 
 
@@ -32,6 +32,7 @@ public class PlayerScript:MonoBehaviour
 
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         groundLayer = LayerMask.GetMask("Ground");
         rb = GetComponent<Rigidbody2D>();
         lives = 5;
@@ -50,8 +51,11 @@ public class PlayerScript:MonoBehaviour
     void Update()
     {
        
-
-
+        if (!wasGrounded && isGrounded)
+        {
+            audioManager.PlaySFX(audioManager.land);
+        }
+        wasGrounded = isGrounded;
 
         DoRayCollisionCheck();
         Shoot();
@@ -78,6 +82,7 @@ public class PlayerScript:MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             yvel = 14f;
+            audioManager.PlaySFX(audioManager.jump);
         }
 
         if (Input.GetKeyDown("m"))
@@ -171,7 +176,7 @@ public class PlayerScript:MonoBehaviour
             //print("Player has collided with Ground layer");
             hitColor = Color.green;
             isGrounded = true;
-
+            
             anim.SetBool("isJumping", false);
 
            
@@ -223,6 +228,7 @@ public class PlayerScript:MonoBehaviour
         //int moveDirection = 1;
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("n"))
         {
+            audioManager.PlaySFX(audioManager.shoot);
             // Instantiate the bullet at the position and rotation of the player
             GameObject clone;
             clone = Instantiate(weapon, transform.position, transform.rotation);

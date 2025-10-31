@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -6,10 +7,12 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Coin : MonoBehaviour
 {
     public PlayerScript objectOne;
+    AudioManager audioManager;
+    
     
     void Start()
     {
-        
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     
     void Update()
@@ -22,7 +25,7 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player") == true)
         {
 
-
+            audioManager.PlaySFX(audioManager.coinPickup);
             objectOne.playerScore += 1;
             
             Destroy(gameObject);

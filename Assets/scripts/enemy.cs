@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     Rigidbody2D rb;
+    AudioManager audioManager;
     public LayerMask groundLayer;
     bool startMove = true;
     bool left = false;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         groundLayer = LayerMask.GetMask("Ground");
         helper = gameObject.AddComponent<HelperScript>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
     }
 
@@ -113,6 +115,7 @@ public class Enemy : MonoBehaviour
     {
         if (enemyHealth == 0)
         {
+            audioManager.PlaySFX(audioManager.enemyDeath);
             Destroy(gameObject);
         }
     }

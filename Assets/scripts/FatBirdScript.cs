@@ -15,6 +15,7 @@ public class FatBirdScript : MonoBehaviour
     bool canGoDown = true;
     bool canGoUp = false ;
     public float maxHeight;
+    AudioManager audioManager;
 
 
     void Start()
@@ -22,7 +23,8 @@ public class FatBirdScript : MonoBehaviour
         groundLayer = LayerMask.GetMask("Ground");
         playerLayer = LayerMask.GetMask("Player");
         rb = GetComponent<Rigidbody2D>();
-       
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
     }
 
     void Update()
@@ -35,22 +37,27 @@ public class FatBirdScript : MonoBehaviour
         // checks for player jumping on top of enemy using raycasts
         if (ExtendedRayCollisionCheckPlayer(0, 2.8f) == true)
         {
+            audioManager.PlaySFX(audioManager.enemyDeath);
             Destroy(gameObject);
         }
         if (ExtendedRayCollisionCheckPlayer(-0.5f, 2.6f) == true)
         {
+            audioManager.PlaySFX(audioManager.enemyDeath);
             Destroy(gameObject);
         }
         if (ExtendedRayCollisionCheckPlayer(0.5f, 2.6f) == true)
         {
+            audioManager.PlaySFX(audioManager.enemyDeath);
             Destroy(gameObject);
         }
         if (ExtendedRayCollisionCheckPlayer(-0.9f, 2.5f) == true)
         {
+            audioManager.PlaySFX(audioManager.enemyDeath);
             Destroy(gameObject);
         }
         if (ExtendedRayCollisionCheckPlayer(0.9f, 2.5f) == true)
         {
+            audioManager.PlaySFX(audioManager.enemyDeath);
             Destroy(gameObject);
         }
         
