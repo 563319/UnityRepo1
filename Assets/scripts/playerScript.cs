@@ -37,7 +37,7 @@ public class PlayerScript:MonoBehaviour
         lives = 5;
         helper = gameObject.AddComponent<HelperScript>();
         sprintSpeed = 8;
-        walkSpeed = 4.7f;
+        walkSpeed = 4f;
         speed = walkSpeed;
         rightSpeed = speed;
         leftSpeed = -speed;
