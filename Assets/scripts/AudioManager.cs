@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip coinPickup;
     public AudioClip jump;
     public AudioClip land;
+    public AudioClip tp;
 
     void Start()
     {
