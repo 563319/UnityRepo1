@@ -10,7 +10,7 @@ public class Tpbutton : MonoBehaviour
     public float tpy = 0f;
     //public Transform destination;
     //public bool cantp;
-    public bool playBackground4;
+    
     AudioManager audioManager;
 
 
@@ -40,10 +40,7 @@ public class Tpbutton : MonoBehaviour
             //transform.position = new Vector3(enemyX, enemyY, 0);
             playerScript.transform.position = teleportPosition.position + new Vector3(2, 0, 0 );
             //playerScript.transform.position = destination.transform.position;
-            if (tpx == -122.17)
-            {
-                playBackground4 = true;
-            }
+            
         }
     }
 }

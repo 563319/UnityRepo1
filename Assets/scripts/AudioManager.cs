@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    public Tpbutton tpButton;
+    
 
 
     public void PlaySFX(AudioClip clip)
@@ -48,13 +48,7 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = background3;
             musicSource.Play();
         }
-        if (tpButton.playBackground4 == true)
-        {
-            musicSource.Stop();
-            musicSource.clip = background4;
-            musicSource.Play();
-       
-        }
+        
 
     }
 
