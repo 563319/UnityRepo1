@@ -389,7 +389,6 @@ MonoBehaviour:
   playerScript: {fileID: 566189743}
   tpx: -127.4963
   tpy: 3.300882
-  playBackground4: 0
   teleportPosition: {fileID: 1513902160}
 --- !u!95 &61019002
 Animator:
@@ -39291,7 +39290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaea4ca09eff6f74382a7daba5a6286f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  tpButton: {fileID: 0}
   musicSource: {fileID: 1713087685}
   SFXSource: {fileID: 2064861751}
   background1: {fileID: 8300000, guid: 70b11bf620ea41043a07888402a26e6a, type: 3}
@@ -39760,7 +39758,6 @@ MonoBehaviour:
   playerScript: {fileID: 566189743}
   tpx: -127.4963
   tpy: 3.300882
-  playBackground4: 0
   teleportPosition: {fileID: 61019000}
 --- !u!95 &1513902162
 Animator:
@@ -40547,7 +40544,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
