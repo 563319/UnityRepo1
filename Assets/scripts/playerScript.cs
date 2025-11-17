@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 using System.Collections;
+using Mono.Cecil.Cil;
 
 public class PlayerScript:MonoBehaviour
 { 
@@ -24,6 +25,8 @@ public class PlayerScript:MonoBehaviour
     public bool cantp = false;
     AudioManager audioManager;
     bool wasGrounded;
+    float coyoteTime = 0.2f;
+    float coyoteTimeCounter;
    
 
 
@@ -38,7 +41,7 @@ public class PlayerScript:MonoBehaviour
         lives = 5;
         helper = gameObject.AddComponent<HelperScript>();
         sprintSpeed = 8;
-        walkSpeed = 4f;
+        walkSpeed = 5.5f;
         speed = walkSpeed;
         rightSpeed = speed;
         leftSpeed = -speed;
@@ -79,11 +82,26 @@ public class PlayerScript:MonoBehaviour
             helper.DoFlipObject(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        //////////////////////
+        if (isGrounded)
         {
-            yvel = 14f;
-            audioManager.PlaySFX(audioManager.jump);
+            coyoteTimeCounter = coyoteTime;
+
         }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && coyoteTimeCounter > 0)
+        {
+            yvel = 17.3f;
+            audioManager.PlaySFX(audioManager.jump);
+            coyoteTimeCounter = 0f;
+        }
+       
+        ////////////////////////
 
         if (Input.GetKeyDown("m"))
         {
