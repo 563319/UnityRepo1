@@ -26,7 +26,7 @@ public class Coin : MonoBehaviour
         {
 
             audioManager.PlaySFX(audioManager.coinPickup);
-            objectOne.playerScore += 1;
+            PlayerScript.playerScore += 1;
             
             Destroy(gameObject);
         }

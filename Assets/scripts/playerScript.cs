@@ -12,7 +12,7 @@ public class PlayerScript:MonoBehaviour
     Rigidbody2D rb;
     bool isGrounded;
     public Animator anim;
-    public int playerScore;
+    public static int playerScore;
     public LayerMask groundLayer;
     public int lives;
     HelperScript helper;
